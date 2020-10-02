@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  Editor as CoreEditor, 
   Value,
 } from 'slate'
 import {
@@ -358,7 +357,7 @@ export class Card extends React.Component<CardProps, CardState> {
     })
   }
 
-  renderTitleBlock = (props: RenderBlockProps, editor: CoreEditor, next: () => any) => {
+  renderTitleBlock = (props: RenderBlockProps, editor: Editor, next: () => any) => {
     const { attributes, children, node } = props
 
     if (node.type === 'card-title') {

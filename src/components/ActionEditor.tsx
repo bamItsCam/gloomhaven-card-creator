@@ -1,13 +1,13 @@
 import React from 'react'
 
 import {
-    Editor as CoreEditor,
-    Value,
+    Value, SlateError,
   } from 'slate'
 import {
   Editor,
   EditorProps,
   RenderMarkProps,
+  EventHook,
 } from 'slate-react'
 
 import classNames from 'classnames'
@@ -66,9 +66,9 @@ export class ActionEditor extends React.Component<ActionEditorProps, ActionEdito
 
     const { selection } = this.props.data.value
     if (selection.isBlurred) {
-      menu.style.top = null
-      menu.style.left = null
-      menu.style.opacity = null
+      menu.style.top = ""
+      menu.style.left = ""
+      menu.style.opacity = ""
       return
     }
 
@@ -78,7 +78,7 @@ export class ActionEditor extends React.Component<ActionEditorProps, ActionEdito
     menu.style.left = `${rect.left}px`
   }
 
-  onBlur = (event: Event, editor: CoreEditor, next: () => any) => {
+  onBlur = (event: React.FocusEvent, editor: Editor, next: () => any) => {
     const document = editor.value.document
     const text = document.text
     if (text !== '') return next()
@@ -154,7 +154,7 @@ export class ActionEditor extends React.Component<ActionEditorProps, ActionEdito
     )
   }
 
-  renderEditor = (props: EditorProps, editor: CoreEditor, next: () => any) => {
+  renderEditor = (props: EditorProps, editor: Editor, next: () => any) => {
     const children = next()
     return (
       <React.Fragment>
@@ -167,7 +167,7 @@ export class ActionEditor extends React.Component<ActionEditorProps, ActionEdito
     )
   }
 
-  renderMark = (props: RenderMarkProps, editor: CoreEditor, next: () => any) => {
+  renderMark = (props: RenderMarkProps, editor: Editor, next: () => any) => {
     const { children, mark, attributes } = props
 
     switch (mark.type) {

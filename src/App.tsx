@@ -4,10 +4,10 @@ import {
   Value,
 } from 'slate'
 import Plain from 'slate-plain-serializer'
+import { saveAs } from 'file-saver'
 
 import deepEquals from 'fast-deep-equal'
 import * as ls from 'local-storage'
-
 import './App.css'
 import {
   CardData,
@@ -15,7 +15,6 @@ import {
 } from './components/Data'
 import { Card } from './components/Card'
 import { Toolbar } from './components/Toolbar'
-
 
 const summonData = {
   visible: false,
@@ -195,6 +194,40 @@ class App extends React.Component<AppProps, AppState> {
     })
   }
 
+  onImportClick = () => {
+    var upload = (document.getElementById('file-upload') as HTMLInputElement);
+    upload.click()
+    upload.onchange = () => {
+      var files = upload.files
+      if (files == null) {
+        console.log("no files found")
+        upload.value=""
+        return
+      }
+      var file = files[0]
+      const reader = new FileReader();
+      reader.readAsText(file)
+      reader.onload = () => {
+        if (reader.error || reader.result == null) {
+          console.log("couldn't import card from file")
+          upload.value=""
+          return
+        }
+        if (typeof reader.result === 'string') {
+          this.setStateData(JSON.parse(reader.result))
+        }
+        upload.value=""
+      }
+    }
+    upload.value=""
+  }
+
+  onExportClick = () => {
+    var data = ls.get<CardJSON>('data')
+    var b = new Blob([JSON.stringify(data)], {type : 'application/json'})
+    saveAs(b, data.level + "_" + data.title.split(' ').join('_'))
+  }
+
   onDeleteClick = () => {
     this.setState(this.getInitialState())
   }
@@ -203,8 +236,7 @@ class App extends React.Component<AppProps, AppState> {
     return !deepEquals(this.state, nextState)
   }
 
-  componentDidMount() {
-    const data = ls.get<CardJSON>('data')
+  setStateData(data: CardJSON) {
     if (data) {
       const { color, actions, hexes, title, level, initiative, summon } = data
       this.setState({
@@ -242,6 +274,11 @@ class App extends React.Component<AppProps, AppState> {
         },
       })
     }
+  }
+
+  componentDidMount() {
+    const data = ls.get<CardJSON>('data')
+    this.setStateData(data)
   }
 
   componentDidUpdate(prevProps: AppProps, prevState: AppState) {
@@ -299,6 +336,8 @@ class App extends React.Component<AppProps, AppState> {
           onColorChange={this.onColorChange}
           onCursorChange={this.onCursorChange}
           onDeleteClick={this.onDeleteClick}
+          onExportClick={this.onExportClick}
+          onImportClick={this.onImportClick}
         />
         <div id="card-container">
           <Card

@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import {
-  Editor as CoreEditor,
   Inline,
 } from 'slate'
 
 import classNames from "classnames"
+import { Editor } from 'slate-react'
 
 
 export const Button = React.forwardRef<React.Ref<any>, any>(({ className, active, reversed, ...props }, ref) => (
@@ -260,7 +260,7 @@ const XPSizeButton = ({ editor }) => {
 }
 
 interface HoverMenuProps {
-  editor: CoreEditor
+  editor: Editor
 }
 
 export const HoverMenu = React.forwardRef<React.Ref<HTMLDivElement>, HoverMenuProps>((props, ref) => {

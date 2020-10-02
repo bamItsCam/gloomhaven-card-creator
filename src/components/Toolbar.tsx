@@ -9,6 +9,8 @@ export interface ToolbarProps {
   onCursorChange: (cursor: 'move' | 'edit') => void
   onPrintClick: () => void
   onDeleteClick: () => void
+  onExportClick: () => void
+  onImportClick: () => void
 }
 
 export interface ToolbarState {
@@ -67,6 +69,14 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
     this.props.onDeleteClick()
   }
 
+  onExportClick = () => {
+    this.props.onExportClick()
+  }
+
+  onImportClick = () => {
+    this.props.onImportClick()
+  }
+
   render() {
     return (
       <div className='toolbar-container'>
@@ -74,6 +84,11 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
           <div><input type='color' value={this.state.color} onChange={this.onColorChange}/></div>
           
           <div className='material-icons md-light click' onClick={this.onPrintClick}>print</div>
+          <div className='material-icons md-light click' onClick={this.onExportClick}>save</div>
+          
+          <div className='material-icons md-light click' onClick={this.onImportClick}>publish</div>
+          <input id="file-upload" type="file" hidden />
+          
           <div className='material-icons md-light click' onClick={this.onMoveClick}>zoom_out_map</div>
         </div>
 
@@ -91,10 +106,12 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
           <ToolbarIcon type='action' icon='target' text='Target' />
           <ToolbarIcon type='action' icon='move' text='Move' />
           <ToolbarIcon type='action' icon='jump' text='Jump' />
+          <ToolbarIcon type='action' icon='teleport' text='Teleport' />
           <ToolbarIcon type='action' icon='flying' text='Flying' />
           <ToolbarIcon type='action' icon='shield' text='Shield' />
           <ToolbarIcon type='action' icon='retaliate' text='Retaliate' />
           <ToolbarIcon type='action' icon='loot' text='Loot' />
+          <ToolbarIcon type='action' icon='banish' text='Banish' />
           <ToolbarIcon type='xp' icon='xp' text='XP' />
           <ToolbarIcon type='action' icon='round' text='Round' iconOnly={true} />
           <ToolbarIcon type='action' icon='persistent' text='Persistent' iconOnly={true} />

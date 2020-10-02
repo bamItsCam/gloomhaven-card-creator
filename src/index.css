@@ -453,7 +453,11 @@ img {
 }
 
 @media print {
-  .toolbar, .summon-toggle {
+  .toolbar-container, .summon-toggle {
       display:none;
   }
+}
+
+#file-upload {
+  display: none;
 }

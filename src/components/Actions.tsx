@@ -11,6 +11,7 @@ import {
   Plugin,
   RenderBlockProps,
   RenderInlineProps,
+  Editor,
 } from 'slate-react'
 
 
@@ -79,7 +80,7 @@ export const CircleAction: React.FC<ActionProps> = (props) => {
 }
 
 export class ActionPlugin implements Plugin {
-  renderBlock = (props: RenderBlockProps, editor: CoreEditor, next: () => any) => {
+  renderBlock = (props: RenderBlockProps, editor: Editor, next: () => any) => {
     const { attributes, children, node } = props
 
     switch (node.type) {
@@ -108,7 +109,7 @@ export class ActionPlugin implements Plugin {
     }
   }
 
-  renderInline = (props: RenderInlineProps, editor: CoreEditor, next: () => any) => {
+  renderInline = (props: RenderInlineProps, editor: Editor, next: () => any) => {
     const { attributes, children, node, isFocused } = props
 
     switch (node.type) {
@@ -137,12 +138,12 @@ export class ActionPlugin implements Plugin {
     }
   }
 
-  onDragOver = (event: any, editor: CoreEditor, next: () => any) => {
+  onDragOver = (event: any, editor: Editor, next: () => any) => {
     event.preventDefault()
     event.stopPropagation()
   }
 
-  onDrop = (event: any, editor: CoreEditor, next: () => any) => {
+  onDrop = (event: any, editor: Editor, next: () => any) => {
     event.preventDefault()
     event.stopPropagation()
 
