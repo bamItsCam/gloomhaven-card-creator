@@ -34,8 +34,8 @@ img {
 
 .card {
   position: relative;
-  width: 413px;
-  height: 563px;
+  width: 379px;
+  height: 529px;
   margin: auto;
   flex: 1;
 }
@@ -94,13 +94,13 @@ img {
 }
 
 .actions > .title {
-  top: 20px;
+  top: 7px;
   font-family: PirataOne;
   font-size: 22pt;
 }
 
 .actions > .level {
-  top: 66px;
+  top: 50px;
   width: 20px;
   font-family: PirataOne;
   font-size: 14pt;
@@ -108,23 +108,23 @@ img {
 }
 
 .actions > .initiative {
-  top: 272px;
+  top: 255px;
   width: 60px;
   font-family: PirataOne;
   font-size: 34pt;
 }
 
 .actions .summon.top {
-  top: 85px;
+  top: 68px;
 }
 
 .actions .summon.bottom {
-  top: 325px;
+  top: 308px;
 }
 
 .actions .summon > img {
   position: relative;
-  left: 45px
+  left: 28px
 }
 
 .actions .summon {
@@ -139,7 +139,7 @@ img {
 .actions .summon.name {
   position: absolute;
   top: 14px;
-  left: 95px;
+  left: 78px;
   width: calc(100% - 145px);
 
   font-size: 17pt;
@@ -150,31 +150,31 @@ img {
 .actions .summon.box1 {
   position: absolute;
   top: 45px;
-  left: 115px;
+  left: 98px;
 }
 
 .actions .summon.box2 {
   position: absolute;
   top: 80px;
-  left: 115px;
+  left: 98px;
 }
 
 .actions .summon.box3 {
   position: absolute;
   top: 45px;
-  left: 190px;
+  left: 173px;
 }
 
 .actions .summon.box4 {
   position: absolute;
   top: 80px;
-  left: 190px;
+  left: 173px;
 }
 
 .actions .summon.box5 {
   position: absolute;
   top: 45px;
-  left: 300px;
+  left: 283px;
 }
 
 .actions [data-slate-object=block] {

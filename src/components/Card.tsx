@@ -379,8 +379,8 @@ export class Card extends React.Component<CardProps, CardState> {
     return (
       <div className='card'>
         <div>
-          <img alt='card' className='center' src={require('../assets/card.jpg')}/>
-          <img alt='card-runes' className='center runes' src={require('../assets/card-runes.jpg')}/>
+          <img alt='card' className='center' src={require('../assets/card-alt.jpg')}/>
+          <img alt='card-runes' className='center runes' src={require('../assets/card-runes-alt.jpg')}/>
           <div className='center color' style={{background: `${this.props.data.color}80`}}></div>
           <div className='actions' onDrop={this.onDrop} onDragOver={this.onDragOver} onMouseMove={this.onMouseMove} onMouseUp={this.onMouseUp}>
             <Editor
