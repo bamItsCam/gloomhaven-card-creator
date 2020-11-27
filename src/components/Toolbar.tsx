@@ -112,6 +112,7 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
           <ToolbarIcon type='action' icon='retaliate' text='Retaliate' />
           <ToolbarIcon type='action' icon='loot' text='Loot' />
           <ToolbarIcon type='action' icon='banish' text='Banish' />
+          <ToolbarIcon type='action' icon='shadow' text='Shadow' iconOnly={true} />
           <ToolbarIcon type='xp' icon='xp' text='XP' />
           <ToolbarIcon type='action' icon='round' text='Round' iconOnly={true} />
           <ToolbarIcon type='action' icon='persistent' text='Persistent' iconOnly={true} />
@@ -128,11 +129,14 @@ export class Toolbar extends React.Component<ToolbarProps, ToolbarState> {
           <ToolbarIcon type='action' icon='effect-push' text='PUSH' />
           <ToolbarIcon type='action' icon='effect-pull' text='PULL' />
           <ToolbarIcon type='action' icon='effect-pierce' text='PIERCE' />
-
+          <ToolbarIcon type='action' icon='status-brittle' text='BRITTLE' />
+          <ToolbarIcon type='action' icon='status-bane' text='BANE' />
           <ToolbarIcon type='action' icon='status-poison' text='POISON' />
           <ToolbarIcon type='action' icon='status-wound' text='WOUND' />
+          <ToolbarIcon type='action' icon='status-regenerate' text='REGENERATE' />
           <ToolbarIcon type='action' icon='status-immobilize' text='IMMOBILIZE' />
           <ToolbarIcon type='action' icon='status-disarm' text='DISARM' />
+          <ToolbarIcon type='action' icon='status-injure' text='INJURE' />
           <ToolbarIcon type='action' icon='status-stun' text='STUN' />
           <ToolbarIcon type='action' icon='status-muddle' text='MUDDLE' />
           <ToolbarIcon type='action' icon='curse' text='CURSE' />

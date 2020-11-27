@@ -174,7 +174,7 @@ img {
 .actions .summon.box5 {
   position: absolute;
   top: 45px;
-  left: 283px;
+  left: 247px;
 }
 
 .actions [data-slate-object=block] {
@@ -238,7 +238,7 @@ img {
 }
 
 .action.element img {
-  height: 1.3em;
+  height: 1.6em;
   width: auto;
 }
 
